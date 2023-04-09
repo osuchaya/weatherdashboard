@@ -3,3 +3,8 @@
     color:black;
     margin: 1em;
 }
+
+#today {
+  
+    border: solid 2px black;
+}
