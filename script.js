@@ -13,13 +13,12 @@ window.onload = function () {
 
     function handleSearchFormSubmit(event) {
         event.preventDefault();
-        //      if (!searchInputVal) {
-        //          console.error('You need a search input value!');
-
-        //      }
+     
         var cityName = searchInputEl.value.trim();
         if (cityName) {
             getWeatherForecast(cityName);
+            addCitytoHistory(cityName);
+            updateHistoryHTML();
             resultContentEl.textContent = '';
             searchInputEl.value = '';
         } else {
@@ -29,8 +28,24 @@ window.onload = function () {
 
     }
 
+function addCitytoHistory(cityName) {
+    var history = JSON.parse(localStorage.getItem("history"))
+    history.push(cityName)
+    localStorage.setItem("history",JSON.stringify(history))
 
+}
+function updateHistoryHTML() {
+    var history = JSON.parse(localStorage.getItem("history"))
+    var historyElement = document.querySelector("#history")
 
+    for (i=0; i<history.length; i++) {
+        var cityName = history[i]
+        var cardEl = document.createElement('div');
+        cardEl.textContent = cityName;
+        historyElement.appendChild(cardEl);
+    }
+
+}
     function getDayWeather(day) {
         var dayDate = day.dt_txt.substring(0, 11)
         var dayTemp = (day.main.temp - 273.15) * (9 / 5) + 32
@@ -61,8 +76,6 @@ window.onload = function () {
                         humidityEl.textContent = humidity + "%"
 
                     }
-
-
 
                 })
             }
