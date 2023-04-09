@@ -48,9 +48,16 @@ function updateHistoryHTML() {
     historyElement.innerHTML = '';
     for (i=0; i<history.length; i++) {
         var cityName = history[i]
-        var cardEl = document.createElement('div');
+        var cardEl = document.createElement('button');
         cardEl.textContent = cityName;
         historyElement.appendChild(cardEl);
+        cardEl.addEventListener('click', function(e){
+            dashboardEl.style.display = "block";
+           
+            var cityName = (e.srcElement.textContent)
+            getCurrentWeather(cityName);
+            getWeatherForecast(cityName);
+        })
     }
 
 }
