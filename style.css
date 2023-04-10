@@ -8,3 +8,9 @@
   
     border: solid 2px black;
 }
+
+.history-button {
+    width: 100%;
+    margin-top: 1em;
+    border-radius: 10px;
+}

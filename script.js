@@ -50,6 +50,7 @@ function updateHistoryHTML() {
         var cityName = history[i]
         var cardEl = document.createElement('button');
         cardEl.textContent = cityName;
+        cardEl.className = "history-button"
         historyElement.appendChild(cardEl);
         cardEl.addEventListener('click', function(e){
             dashboardEl.style.display = "block";
