@@ -1,6 +1,6 @@
 # weatherdashboard
 Server side API challenge weather dashboard
-Visit the deployed site at https://osuchaya.github.com/
+Visit the deployed site at https://osuchaya.github.com/weatherdashboard 
 
 Screenshot of deployed site:
 ![](/Assets/Deployed%20weatherdb%20app.png)
